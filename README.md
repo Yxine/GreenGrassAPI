@@ -1,3 +1,3 @@
 # GreenGrass API Playground
 
-Playground для всех ваших API!
+Playground for Your APIs!
