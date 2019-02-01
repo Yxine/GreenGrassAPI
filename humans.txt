@@ -1,0 +1,10 @@
+/* TEAM */
+Developer: Larin Aleksandr
+Site: https://larin.name
+Gitter: https://gitter.im/yxinity-group/green-grass-api
+Location: Russia, Novosibirsk
+
+/* SITE */
+Standards: HTML5, CSS3
+Components: jQuery 3.3.1
+Software: Visual Studio 2017 15.9.6, Visual Studio Code 1.30.2

@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>GreenGrassAPI Whirlpool Playground</title>
+	<link rel="stylesheet" href="skins/default/s.css">
+</head>
+<body>
+
+<header>
+	<h1>GreenGrassAPI Whirlpool API Playground</h1>
+	<small>обновлено 11.12.2018 18:23</small>
+</header>
+
+<main>
+	<div class="doc">
+		<h2>Документация</h2>
+		<div>
+			<h3>Описание</h3>
+			<p>Вычисление Whirlpool хеша от&nbsp;строки</p>
+			<h3>Метод</h3>
+			<p>POST</p>
+			<h3>Адрес</h3>
+			<p>https://passport.bcs.ru/core/api/whirlpool</p>
+			<h3>Входные параметры</h3>
+			<p>
+				text<br>
+				<small>Текст. Строка, обязательный параметр.</small>
+			</p>
+			<h3>Тип ответа</h3>
+			<p>JSON</p>
+			<p>
+				<b>Ответ в&nbsp;случае успеха</b><br>
+<pre>
+{
+	"status": 1,
+	"hash": "<em>Вычисленный хеш, 128 байт</em>",
+	"message": "Хеш успешно вычислен!"
+}
+</pre>
+			</p>
+			<p>
+				<b>Ответ в&nbsp;случае ошибки</b><br>
+<pre>
+{
+	"status": <em>x</em>, <em>// x > 1</em>
+	"message": "<em>описание ошибки</em>"
+}
+</pre>
+			</p>
+		</div>
+	</div>
+	<div class="form">
+		<h2>Форма</h2>
+		<form action="javascript:;">
+			<input type="text" name="text" data-gen="Привет, Мир!" placeholder="text">
+			<a class="js-gen" href="javascript:;">Сгенерировать значение</a>
+			<button type="submit">Отправить</button>
+		</form>
+	</div>
+	<div class="result">
+		<h2>Ответ</h2>
+		<textarea rows="7" readonly="readonly" placeholder="Здесь будет ответ вызова API"></textarea>
+	</div>
+</main>
+
+<script src="vendors/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		$('.js-gen').click(
+			function () {
+				$('input').each(
+					function () {
+						var t = $(this);
+						t.val(t.data('gen'));
+					}
+				);
+				return !1;
+			}
+		);
+		var buzy = !1;
+		var textarea = $('textarea');
+		$('form').submit(
+			function() {
+				if (buzy) return !1;
+				textarea.val('Запрос к API...');
+				buzy = !0;
+				$.post(
+					'https://passport.bcs.ru/core/api/whirlpool',
+					{
+						text: $('[name="text"]').val()
+					},
+					function (json) {
+						textarea.val(JSON.stringify(json, undefined, 4));
+						buzy = !1;
+					}
+				)
+				.fail(
+					function () {
+						textarea.val('Ошибка при отправке запроса к API...');
+						buzy = !1;
+					}
+				);
+				return !1;
+			}
+		);
+	});
+</script>
+
+</body>
+</html>
