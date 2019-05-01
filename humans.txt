@@ -10,9 +10,9 @@
     Parents: Larin Alexsandr Vasilevich, Larina Valentina Ivanovna
 
 /* SITE */
-    Last update: 2019/04/26
+    Last update: 2019/05/01
     Language: Russian
     Doctype: HTML5
     Standards: HTML5, CSS3
     Components: jQuery 3.4.0
-    IDE: Visual Studio 2019 19.0.2, Visual Studio Code 1.33.1
+    IDE: Visual Studio 2019 19.0.3, Visual Studio Code 1.33.1

@@ -10,6 +10,10 @@ Very simple and easy to use playground for working and sampling Your APIs!
 
 ## 26.04.2019
 
+No more local vendor of jQuery
+
+## 26.04.2019
+
 jQuery update to 3.4.0
 
 ## 07.02.2019
